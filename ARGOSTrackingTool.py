@@ -9,6 +9,7 @@
 # Date:   Fall 2025
 #--------------------------------------------------------------
 
+user_date =  input("Enter a date (M/D/YYYY): ")
 # Parse Data
 # Copy and paste a line of data as the lineString variable value
 lineString = "20616	29051	7/3/2003 9:13	3	66	33.898	-77.958	27.369	-46.309	6	0	-126	529	3	401 651134.7	0"
@@ -64,4 +65,22 @@ for lineString in line_list:
         location_dict[record_id] = (obs_lat, obs_lon)
     
     #Print the location of sara
-    #print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {obs_date}")
+    print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {obs_date}")
+
+keys = []
+# Loop through all key, value pairs in the date_dictionary
+for key, value in date_dict.items():
+    #See if the date (the value) matches the user date
+    if value == user_date:
+        keys.append(key)
+
+if len(keys) == 0:
+    print(f"Sara was not located on {user_date}")
+
+#Reveal locations for each key in matching_keys
+for key in keys:
+    location = location_dict[key]
+    lat = location[0]
+    lng = location[1]
+    print(f"On {user_date}, Sara the the turtle was seen at {lat}d Lat, {lng}d Lng.")
+
