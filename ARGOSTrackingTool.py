@@ -33,13 +33,13 @@ file_name = 'data/raw/sara.txt'
 file_object = open(file_name,'r')
 
 #Read contents of file into a list
-line_list = ""
+line_list = file_object.readlines()
 
 #Close the file
 file_object.close()
 
 #Pretend we read one line of data from the file
-lineString = line_list[1]
+lineString = line_list[20]
 
 #Split the string into a list of data items
 lineData = lineString.split()
